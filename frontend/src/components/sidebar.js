@@ -87,7 +87,7 @@ const Sidebar = ({
 
   return (
     <Box component="nav">
-      {isSidebarOpen && (
+      
         <Box
           open={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
@@ -113,7 +113,7 @@ const Sidebar = ({
                       fontWeight={900}
                       color={theme.palette.secondary[100]}
                     >
-                      ExperienceHub
+                      FreePost
                     </Typography>
                   </FlexBetween>
                 </Box>
@@ -178,7 +178,6 @@ const Sidebar = ({
             </List>
           </Box>
         </Box>
-      )}
     </Box>
   );
 };
