@@ -27,7 +27,7 @@ import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./Flexbetween";
-import profileImage from "https://img.freepik.com/free-photo/portrait-african-american-man_23-2149072179.jpg?t=st=1712652008~exp=1712655608~hmac=d48cb50d9ec9a67574b175f44517c21554485ba5f311d6d81de9b7b549aa9de3&w=900";
+// import profileImage from "https://img.freepik.com/free-photo/portrait-african-american-man_23-2149072179.jpg?t=st=1712652008~exp=1712655608~hmac=d48cb50d9ec9a67574b175f44517c21554485ba5f311d6d81de9b7b549aa9de3&w=900";
 import UserWidget from "../pages/widgets/userWidget";
 
 const navItems = [

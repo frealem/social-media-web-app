@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import userImage from '../../src/assets/images/young-beautiful-girl-posing-black-leather-jacket-park_1153-8104.jpg'
+import userImage from '../images/photo_2024-04-08_23-14-40.jpg'
 const UserImage = ({ image, size = {size},profilePicture }) => {
   return (
     <Box width={size} height={size}>

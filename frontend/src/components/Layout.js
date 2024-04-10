@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useGetUserQuery } from "./States/Api";
+// import { useGetUserQuery } from "./States/Api";
 import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";

@@ -8,7 +8,7 @@ import {
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import profileImage from "https://img.freepik.com/free-photo/portrait-african-american-man_23-2149072179.jpg?t=st=1712652008~exp=1712655608~hmac=d48cb50d9ec9a67574b175f44517c21554485ba5f311d6d81de9b7b549aa9de3&w=900";
+import profileImage from "../images/photo_2024-04-08_23-14-40.jpg";
 import {
   AppBar,
   Button,
@@ -23,20 +23,20 @@ import {
 } from "@mui/material";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
 import FlexBetween from "./Flexbetween";
-import setMode from '../States/themeSlice'
-
-const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen}) => {
+import { setMode } from "../States/themeSlice";
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
-  const handleClick = (event) =>{
-        setAnchorEl(event.currentTarget);}
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   const handleClose = () => setAnchorEl(null);
- const handleAuth=()=>{
-navigate("/authpage")
- }
+  const handleAuth = () => {
+    navigate("/authpage");
+  };
   return (
     <AppBar
       sx={{
@@ -47,11 +47,18 @@ navigate("/authpage")
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
-      <FlexBetween gap="3rem" padding="2rem 6%">{(!isSidebarOpen)&&
-        <FlexBetween>
-        <Typography variant="h3" fontWeight={900} color={theme.palette.secondary[100]}>
-                 ExperienceHub
-                  </Typography></FlexBetween>}
+        <FlexBetween gap="3rem" padding="2rem 6%">
+          {!isSidebarOpen && (
+            <FlexBetween>
+              <Typography
+                variant="h3"
+                fontWeight={900}
+                color={theme.palette.secondary[100]}
+              >
+                ExperienceHub
+              </Typography>
+            </FlexBetween>
+          )}
           <FlexBetween
             backgroundColor={theme.palette.secondary[900]}
             borderRadius={15}
@@ -67,7 +74,7 @@ navigate("/authpage")
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
-        <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
           <IconButton onClick={() => dispatch(setMode())}>
@@ -131,9 +138,7 @@ navigate("/authpage")
           </FlexBetween>
         </FlexBetween>
       </Toolbar>
-      
     </AppBar>
-    
   );
 };
 

@@ -8,10 +8,8 @@ import {
   import { useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
-import WidgetWrapper from "../../components/widgetWrapper";
 import FlexBetween from "../../components/Flexbetween";
 import UserImage from "../../components/userImage";
-import image from '../../assets/images/chatapp.jpeg'
   const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null);
     const { palette } = useTheme();
