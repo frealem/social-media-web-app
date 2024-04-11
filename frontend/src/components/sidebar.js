@@ -32,19 +32,62 @@ import UserWidget from "../pages/widgets/userWidget";
 
 const navItems = [
   {
-    text: "Your feeds",
-    icon: <DynamicFeedOutlinedIcon />,
-  },
-  {
     text: "Menu",
     icon: null,
   },
   {
-    text: "Your Posts",
+    text: "Discover",
+    icon: <DynamicFeedOutlinedIcon />,
+  },
+  {
+    text: "Trending",
+    icon: <DynamicFeedOutlinedIcon />,
+  },
+  {
+    text: "Explores",
     icon: <PostAddOutlinedIcon />,
   },
   {
-    text: "Events",
+    text: "BookMarks",
+    icon: <EventOutlinedIcon />,
+  },
+  {
+    text: "Groups",
+    icon: <FavoriteOutlinedIcon />,
+  },
+  {
+    text: "Pages",
+    icon: <DraftsOutlinedIcon />,
+  },
+  {
+    text: "Stages",
+    icon: <FormatShapesOutlinedIcon />,
+  },
+  {
+    text: "Game",
+    icon: <MessageOutlinedIcon />,
+  },
+];
+
+const libraryItems = [
+  {
+    text: "Libraries",
+    icon: null,
+  },
+  {
+    text: "Wallet",
+    icon: <DynamicFeedOutlinedIcon />,
+  },
+  {
+    text: "Lives Channels",
+    icon: <DynamicFeedOutlinedIcon />,
+  },
+  {
+    text: "Recent",
+    icon: <PostAddOutlinedIcon />,
+  },
+  {
+    text: "PlayLists",
     icon: <EventOutlinedIcon />,
   },
   {
@@ -52,20 +95,8 @@ const navItems = [
     icon: <FavoriteOutlinedIcon />,
   },
   {
-    text: "Drafted Posts",
+    text: "Locals",
     icon: <DraftsOutlinedIcon />,
-  },
-  {
-    text: "Ads Manager",
-    icon: <FormatShapesOutlinedIcon />,
-  },
-  {
-    text: "Message",
-    icon: <MessageOutlinedIcon />,
-  },
-  {
-    text: "See More",
-    icon: <ExpandMoreOutlinedIcon />,
   },
 ];
 
@@ -129,6 +160,56 @@ const Sidebar = ({
             </Box>
             <List>
               {navItems.map(({ text, icon }) => {
+                if (!icon) {
+                  return (
+                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                      {text}
+                    </Typography>
+                  );
+                }
+                const lcText = text.toLowerCase();
+
+                return (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton
+                      onClick={() => {
+                        navigate(`/${lcText}`);
+                        setActive(lcText);
+                      }}
+                      sx={{
+                        backgroundColor:
+                          active === lcText
+                            ? theme.palette.secondary[300]
+                            : "transparent",
+                        color:
+                          active === lcText
+                            ? theme.palette.primary[600]
+                            : theme.palette.secondary[100],
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          ml: "2rem",
+                          color:
+                            active === lcText
+                              ? theme.palette.primary[600]
+                              : theme.palette.secondary[200],
+                        }}
+                      >
+                        {icon}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                      {active === lcText && (
+                        <ChevronRightOutlined sx={{ ml: "auto" }} />
+                      )}
+                    </ListItemButton>
+                  </ListItem>
+                );
+              })}
+            </List>
+
+            <List>
+              {libraryItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
                     <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>

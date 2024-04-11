@@ -48,17 +48,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween gap="3rem" padding="2rem 6%">
-          {!isSidebarOpen && (
-            <FlexBetween>
-              <Typography
-                variant="h3"
-                fontWeight={900}
-                color={theme.palette.secondary[100]}
-              >
-                ExperienceHub
-              </Typography>
-            </FlexBetween>
-          )}
           <FlexBetween
             backgroundColor={theme.palette.secondary[900]}
             borderRadius={15}
@@ -74,7 +63,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
-          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <IconButton >
             <MenuIcon />
           </IconButton>
           <IconButton onClick={() => dispatch(setMode())}>
@@ -133,6 +122,8 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
