@@ -11,6 +11,7 @@ import {
   ListItemText,
   Typography,
   useTheme,
+  useMediaQuery
 } from "@mui/material";
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
@@ -29,6 +30,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./Flexbetween";
 // import profileImage from "https://img.freepik.com/free-photo/portrait-african-american-man_23-2149072179.jpg?t=st=1712652008~exp=1712655608~hmac=d48cb50d9ec9a67574b175f44517c21554485ba5f311d6d81de9b7b549aa9de3&w=900";
 import UserWidget from "../pages/widgets/userWidget";
+import UserImage from "./userImage";
 
 const navItems = [
   {
@@ -111,10 +113,12 @@ const Sidebar = ({
   const [active, setActive] = useState("");
   const navigate = useNavigate();
   const theme = useTheme();
+  const[openSidebar,setOpenSidebar]=useState(false);
 
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box component="nav">
@@ -125,7 +129,7 @@ const Sidebar = ({
           variant="persistent"
           anchor="left"
           sx={{
-            width: drawerWidth,
+            width: "300px",
             "& .MuiDrawer-paper": {
               color: theme.palette.grey[50],
               backgroundColor: theme.palette.background.alt,
@@ -138,7 +142,8 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <FlexBetween>
+                  <FlexBetween
+                  marginTop="50px">
                     <Typography
                       variant="h3"
                       fontWeight={900}
@@ -154,11 +159,29 @@ const Sidebar = ({
                   </IconButton>
                 )}
               </FlexBetween>
-              <Box pt={5}>
-                <UserWidget />
+              <Box 
+              sx={{
+                width:"90%",
+                height:"60px",
+                marginTop:"30px",
+                borderColor: theme.palette.secondary[100], // Replace with your desired border color
+  borderWidth: "2px",
+  borderStyle: "solid",
+  borderRadius: theme.shape.borderRadius,
+  padding:"10px"
+              }}
+             >
+             <Box display="flex" gap={1}>
+              <Box><UserImage size="40px"/></Box>
+              <Box>
+               <Typography  color={theme.palette.secondary[100]}>Frealem Tekalign</Typography> 
+               <Typography variant="body2">Account Owner</Typography> 
+              </Box>
+             </Box>
+              
               </Box>
             </Box>
-            <List>
+            <List >
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (

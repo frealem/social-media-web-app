@@ -8,7 +8,6 @@ import { themeSettings } from "./components/theme";
 import Home from "./pages/home/Home";
 
 
-
 function App() {
   const mode = useSelector((state) => state.theme.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
